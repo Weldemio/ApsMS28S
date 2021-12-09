@@ -65,13 +65,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
         //paddle
         graphics.setColor(Color.green);
         graphics.fillRect(playerX, 550, 100, 8);
-        
+
         GraphicConfiguration graphicConfiguration = new GraphicConfiguration();
 
         if (play == false) {
-        	graphicConfiguration.notPlay(graphics, ballPosX, ballPosY);
+            graphicConfiguration.notPlay(graphics, ballPosX, ballPosY);
         } else {
-        	graphicConfiguration.isPlay(graphics, ballPosX, ballPosY);
+            graphicConfiguration.isPlay(graphics, ballPosX, ballPosY);
         }
 
         if (score >= 50 && score < 100) {
@@ -162,21 +162,25 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+        boolean isKeyRight = ke.getKeyCode() == KeyEvent.VK_RIGHT;
+        boolean isKeyLeft = ke.getKeyCode() == KeyEvent.VK_LEFT;
+        boolean isKeyEnter = ke.getKeyCode() == KeyEvent.VK_ENTER;
+
+        if (isKeyRight) {
             if (playerX >= 600) {
                 playerX = 600;
             } else {
                 moveRight();
             }
         }
-        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+        if (isKeyLeft) {
             if (playerX < 10) {
                 playerX = 10;
             } else {
                 moveLeft();
             }
         }
-        if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (isKeyEnter) {
             if (!play) {
                 play = true;
                 playerX = 310;
