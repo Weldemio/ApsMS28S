@@ -62,38 +62,42 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
         graphics.setFont(new Font("serif", Font.BOLD, 22));
         graphics.drawString("Score: " + score + "/200", 490, 30);
 
-        //paddle
-        graphics.setColor(Color.green);
-        graphics.fillRect(playerX, 550, 100, 8);
+       //paddle
+  graphics.setColor(Color.green);
+  graphics.fillRect(playerX, 550, 100, 8);
 
-        if (play == false) {
-            //game start message
-            graphics.setColor(Color.YELLOW);
-            graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
-            graphics.drawString("Press Enter/Left/Right Arrow to start the game!", 90, 350);
+  if (play == false) {
+      //game start message
+      graphics.setColor(Color.YELLOW);
+      graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
+      graphics.drawString("Press Enter/Left/Right Arrow to start the game!", 90, 350);
 
-            //ball hiding
-            graphics.setColor(Color.black);
-            graphics.fillOval(ballPosX, ballPosY, 20, 20);
-        } else {
-            //ball showing
-            graphics.setColor(Color.green);
-            graphics.fillOval(ballPosX, ballPosY, 20, 20);
-        }
+      //ball hiding
+      graphics.setColor(Color.black);
+      graphics.fillOval(ballPosX, ballPosY, 20, 20);
+  } 
+  if (play =! false) {
+      //ball showing
+      graphics.setColor(Color.green);
+      graphics.fillOval(ballPosX, ballPosY, 20, 20);
+  }
 
-        if (score >= 50 && score < 100) {
-            //ball color & size change
-            graphics.setColor(Color.yellow);
-            graphics.fillOval(ballPosX, ballPosY, 21, 21);
-        } else if (score >= 100 && score < 150) {
-            //ball
-            graphics.setColor(Color.orange);
-            graphics.fillOval(ballPosX, ballPosY, 22, 22);
-        } else if (score >= 150) {
-            //ball
-            graphics.setColor(Color.red);
-            graphics.fillOval(ballPosX, ballPosY, 23, 23);
-        }
+  if (score >= 50 && score < 100) {
+      //ball color & size change
+      graphics.setColor(Color.yellow);
+      graphics.fillOval(ballPosX, ballPosY, 21, 21);
+  } 
+  if (score >= 100 && score < 150) {
+      //ball
+      graphics.setColor(Color.orange);
+      graphics.fillOval(ballPosX, ballPosY, 22, 22);
+  } 
+  if (score >= 150) {
+      //ball
+      graphics.setColor(Color.red);
+      graphics.fillOval(ballPosX, ballPosY, 23, 23);
+  }
+
 
         if (totalBricks <= 0) {
             play = false;
