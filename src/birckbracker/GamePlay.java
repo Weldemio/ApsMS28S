@@ -65,20 +65,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
         //paddle
         graphics.setColor(Color.green);
         graphics.fillRect(playerX, 550, 100, 8);
+        
+        GraphicConfiguration graphicConfiguration = new GraphicConfiguration();
 
         if (play == false) {
-            //game start message
-            graphics.setColor(Color.YELLOW);
-            graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
-            graphics.drawString("Press Enter/Left/Right Arrow to start the game!", 90, 350);
-
-            //ball hiding
-            graphics.setColor(Color.black);
-            graphics.fillOval(ballPosX, ballPosY, 20, 20);
+        	graphicConfiguration.notPlay(graphics, ballPosX, ballPosY);
         } else {
-            //ball showing
-            graphics.setColor(Color.green);
-            graphics.fillOval(ballPosX, ballPosY, 20, 20);
+        	graphicConfiguration.isPlay(graphics, ballPosX, ballPosY);
         }
 
         if (score >= 50 && score < 100) {
